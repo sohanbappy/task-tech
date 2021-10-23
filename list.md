@@ -34,7 +34,7 @@
 * Swagger
 * Sentry
 * SMS Api
-* 
+
 
 ### VCS
 * Git
@@ -91,6 +91,7 @@
 * nodeJS
 
 ### Upcoming topic
+
 --------------------
 
 
