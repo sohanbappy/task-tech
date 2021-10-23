@@ -9,7 +9,32 @@
 
 ### Java
 * Java 8,11
-* IDE - Netbeans, Eclipse, IntelliJ, VS Code, SublimeTxt
+* IDE - Netbeans, Eclipse, IntelliJ, STS, VS Code, SublimeTxt
+
+### related tech
+* JSP
+* Servlet
+* Spring MVC
+* Spring Boot
+* Spring Security, JWT, OAuth2
+* Hibernate
+* JPA
+* Rest API
+* Webflux
+* RabbitMQ
+* Redis
+* Solr
+* Thymeleaf
+* JavaMail
+* itext
+* Twilio
+* **bKash**
+* firebase API
+* JUnit
+* Swagger
+* Sentry
+* SMS Api
+* 
 
 ### VCS
 * Git
@@ -28,7 +53,7 @@
 * Netty
 * Undertow
 
-### FrontEnd
+### FrontEnd (not priority)
 * Html
 * CSS
 * JavaScript
@@ -41,6 +66,9 @@
 * JMeter
 * JasperSoft
 
+### Diagram
+* mockFlow
+
 ### Communication 
 * Skype
 * Slack
@@ -48,10 +76,13 @@
 * Discord
 * Teamviewer
 * AnyDesk
+* VMWare
 
-### Others
+### Others (on Going)
 * Microservices
 * Reactive
+* CI/CD - Jenkins
+* Docker
 
 
 ### Familiarity
@@ -60,6 +91,6 @@
 * nodeJS
 
 ### Upcoming topic
-
+--------------------
 
 
