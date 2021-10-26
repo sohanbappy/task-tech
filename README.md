@@ -34,6 +34,7 @@
 * Swagger
 * Sentry
 * SMS Api
+* Webhook (Skype,Slack,Discord)
 
 
 ### VCS
@@ -83,6 +84,8 @@
 * Reactive
 * CI/CD - Jenkins
 * Docker
+* Spring Batch
+* MongoDB
 
 
 ### Familiarity
