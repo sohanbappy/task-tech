@@ -27,6 +27,7 @@
 * Thymeleaf
 * JavaMail
 * itext
+* Jasper Report (Jasper Studio)
 * Twilio
 * **bKash**
 * firebase API
