@@ -1,0 +1,185 @@
+===JMeter™===
+
+The Apache JMeter™ application is open source software, a 100% pure Java application designed to load test 
+functional behavior and measure performance.
+
+---Download
+-JMeter
+https://jmeter.apache.org/download_jmeter.cgi
+
+-Plugin Manager
+https://www.blazemeter.com/blog/how-install-jmeter-plugins-manager
+
+-Plugin for JSON assertion
+https://jmeter-plugins.org/wiki/JSONPathAssertion/
+
+-JDBC Driver
+https://dev.mysql.com/downloads/connector/j/     
+-(select platform-independent  version)
+-PUT jar file in the lib/ext folder of JMeter
+
+--Run and Open
+-Extract the zip
+-Run jmeter.bat file which inside the bin folder
+
+--Open and Run test
+-Click Open Icon from menu and select desired file with extension .jms (ex- Active_Subscriber.jms)
+
+--Enable/Disable
+-Enable/Disable can be done by clicking right button after selecting any componenet
+
+--Common components
+-JDBC Connection Configuration, jp@gc - JSON Format Post Processor, Local_env, View_Results_Tree (Always enable)
+-Rest of the Helper Components need to be disabled
+
+------API testing----------
+Environment: We can set/change host,port from (Local_env) file
+DB Configure: Change value in the (JDBC Connection Configuration) for DB , located in the lower portion of the file
+
+As we used Spring security, we need token for API access. So,
+--Get Token
+-Enable GET_Token component and Header_for_Token setting file
+-Put username,password in the body as data (in JSON) in the GET_Token Component- 
+Ex: {
+	"username" : "bappy",
+	"password" : 1234
+}
+
+--API test (Ex: Active_Subscriber_GET) -> (_GET extention for ALL APIs used)
+-Insert Data in the desired table (as target)
+
+-Disable Header_for_Token and GET_Token
+-Enable the API component(Active_Subscriber_GET) and HTTP Header Manager
+-JWT will be filled from Environment  variable automatically (authorization)
+-Select View_Results_Tree and Hit the Start Icon
+-Result will be displayed with Colour signal
+-Detailed result can be checked by switching Request/Reponse tab
+
+--JSON
+-Enable (jp@gc - JSON Assertion) Componnet
+**In JSON Assertion file,
+-JSON path is ($) means root/all output
+-Make sure, Additionally assert value is marked
+-PUT pattern, for multiple use and  [change value as your need, upon data insertion]
+
+
+Then,
+-Select View_Results_Tree and Hit the Start Icon
+-Assertion result will be displayed with proper message
+-Expand the Result and select Assertion for details (if failed)
+
+N.B:
+--Clean Results
+-Select View_Results_Tree
+-Hit Clear ICOn from the Menu Icon List
+
+Resources(Assertions):
+
+https://chercher.tech/jmeter/json-assertion-jmeter
+http://thatsabug.com/blog/jmeter_3/
+https://octoperf.com/blog/2018/04/19/jmeter-assertions/#json-assertion
+https://www.blazemeter.com/blog/how-to-use-the-json-plugin-in-jmeter
+https://support.smartbear.com/readyapi/docs/testing/assertions/reference/property/json-match.html
+https://github.com/fluentassertions/fluentassertions.json/issues/26
+https://assertible.com/docs/guide/assertions
+https://stackoverflow.com/questions/54587468/json-assertion-assert-multiple-response-values
+https://www.checklyhq.com/docs/api-checks/assertions/
+https://github.com/json-path/JsonPath
+
+
+Sample OutPut (for Active):
+Input: from sql file
+Case: Active Subscriber
+[
+        {
+        "payType": "PREPAID",
+        "zone": "Central",
+        "clientType": "INDIVIDUAL",
+        "data": 4
+    },
+        {
+        "payType": "PREPAID",
+        "zone": "South-East",
+        "clientType": "INDIVIDUAL",
+        "data": 3
+    },
+        {
+        "payType": "PREPAID",
+        "zone": "South-West",
+        "clientType": "INDIVIDUAL",
+        "data": 1
+    },
+        {
+        "payType": "PREPAID",
+        "zone": "Central",
+        "clientType": "CORPORATE",
+        "data": 4
+    },
+        {
+        "payType": "PREPAID",
+        "zone": "North-East",
+        "clientType": "CORPORATE",
+        "data": 2
+    },
+        {
+        "payType": "PREPAID",
+        "zone": "North-West",
+        "clientType": "CORPORATE",
+        "data": 2
+    },
+        {
+        "payType": "POSTPAID",
+        "zone": "Central",
+        "clientType": "CORPORATE",
+        "data": 3
+    },
+        {
+        "payType": "POSTPAID",
+        "zone": "North-West",
+        "clientType": "CORPORATE",
+        "data": 1
+    },
+        {
+        "payType": "PREPAID",
+        "zone": "Central",
+        "clientType": "CORPORATE_CONCURRENT",
+        "data": 40
+    },
+        {
+        "payType": "PREPAID",
+        "zone": "North-East",
+        "clientType": "CORPORATE_CONCURRENT",
+        "data": 20
+    },
+        {
+        "payType": "PREPAID",
+        "zone": "North-West",
+        "clientType": "CORPORATE_CONCURRENT",
+        "data": 20
+    },
+        {
+        "payType": "POSTPAID",
+        "zone": "Central",
+        "clientType": "CORPORATE_CONCURRENT",
+        "data": 30
+    },
+        {
+        "payType": "POSTPAID",
+        "zone": "North-West",
+        "clientType": "CORPORATE_CONCURRENT",
+        "data": 10
+    }
+]
+Sample Assertion:
+Path: $
+
+Expected value: {"payType":"PREPAID","clientType":"INDIVIDUAL","data":3,"zone":"South-East"}
+Actual: Success
+
+Expected value: {"payType":"PREPAID","clientType":"INDIVIDUAL","data":2,"zone":"South-East"}
+Actual: Failed
+
+
+
+
+

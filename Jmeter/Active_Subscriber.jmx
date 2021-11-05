@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Active_Subscriber_test" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="type" elementType="Argument">
+            <stringProp name="Argument.name">type</stringProp>
+            <stringProp name="Argument.value">active_subscriber</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Dev_tester" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Results__Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="Results_Table" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Insert_CC_Card" enabled="false">
+          <stringProp name="dataSource">iptsp_pool</stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="query">
+INSERT INTO `cc_card` (`username`, `useralias`, `state`, `typepaid`,  `max_concurrent`, `company_name`, `enableexpire`,  `expiredays`, `uipass`,  `credit`,  `tariff`,  `id_didgroup`,  `activated`,  `status`,  `lastname`,  `firstname`,  `address`,  `city`, `country`,  `zipcode`,  `phone`,  `email`,  `fax`,  `inuse`,  `simultaccess`,  `currency`, `lastuse`, `nbused`, `creditlimit`,  `voipcall`,  `sip_buddy`,  `iax_buddy`,  `language`,  `redial`,  `runservice`,  `nbservice`,  `id_campaign`,  `num_trials_done`,  `vat`,  `servicelastrun`,  `initialbalance`,  `invoiceday`,  `autorefill`,  `loginkey`,  `mac_addr`,  `id_timezone`,  `tag`,  `voicemail_permitted`,  `voicemail_activated`,  `last_notification`,  `email_notification`,  `notify_email`,  `credit_notification`,  `id_group`,  `company_website`,  `vat_rn`,  `traffic`, `traffic_target`,  `discount`,  `restriction`,  `id_seria`,  `serial`,  `block`,  `lock_pin`,  `lock_date`, `firstusedate`, `expirationdate`)
+VALUES
+(&apos;09648000110&apos;, &apos;09648000110&apos;, &apos;Central&apos;, 0, 10, &apos;S &apos;, 0, 0, &apos;a2b123&apos;, 10.00000, 1, -1, &apos;f&apos;, 1, &apos;Test3&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, &apos;BGD&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, 0, 1, &apos;BDT&apos;, &apos;2021-04-07 14:30:09&apos;, 10, 0, 0, 1, 1, &apos;en&apos;, &apos;880811844526521&apos;, 0, 0, -1, 0, 0, &apos;2021-04-07 14:30:09&apos;, 0.00000, 1, 0, &apos;&apos;, &apos;00-00-00-00-00-00&apos;, 52, &apos;&apos;, 0, 0, NULL, &apos;&apos;, 0, -1, 1, &apos;&apos;, NULL, NULL, &apos;&apos;, 0.00, 0, -1, NULL, 0, &apos;0&apos;, NULL,&apos;2021-04-07 14:30:09&apos;, &apos;2021-04-07 14:30:09&apos;),
+(&apos;09648000120&apos;, &apos;09648000120&apos;, &apos;Central&apos;, 0, 10, &apos;S &apos;, 0, 0, &apos;a2b123&apos;, 10.00000, 1, -1, &apos;f&apos;, 1, &apos;Test3&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, &apos;BGD&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, 0, 1, &apos;BDT&apos;, &apos;2021-04-07 14:30:09&apos;, 10, 0, 0, 1, 1, &apos;en&apos;, &apos;880811844526521&apos;, 0, 0, -1, 0, 0, &apos;2021-04-07 14:30:09&apos;, 0.00000, 1, 0, &apos;&apos;, &apos;00-00-00-00-00-00&apos;, 52, &apos;&apos;, 0, 0, NULL, &apos;&apos;, 0, -1, 1, &apos;&apos;, NULL, NULL, &apos;&apos;, 0.00, 0, -1, NULL, 0, &apos;0&apos;, NULL,&apos;2021-04-07 14:30:09&apos;, &apos;2021-04-07 14:30:09&apos;),
+(&apos;09648000130&apos;, &apos;09648000130&apos;, &apos;Central&apos;, 0, 10, &apos;S &apos;, 0, 0, &apos;a2b123&apos;, 10.00000, 1, -1, &apos;f&apos;, 1, &apos;Test3&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, &apos;BGD&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, 0, 1, &apos;BDT&apos;, &apos;2021-04-07 14:30:09&apos;, 10, 0, 0, 1, 1, &apos;en&apos;, &apos;880811844526521&apos;, 0, 0, -1, 0, 0, &apos;2021-04-07 14:30:09&apos;, 0.00000, 1, 0, &apos;&apos;, &apos;00-00-00-00-00-00&apos;, 52, &apos;&apos;, 0, 0, NULL, &apos;&apos;, 0, -1, 1, &apos;&apos;, NULL, NULL, &apos;&apos;, 0.00, 0, -1, NULL, 0, &apos;0&apos;, NULL,&apos;2021-04-07 14:30:09&apos;, &apos;2021-04-07 14:30:09&apos;),
+(&apos;09648000140&apos;, &apos;09648000140&apos;, &apos;Central&apos;, 0, 10, &apos;S &apos;, 0, 0, &apos;a2b123&apos;, 10.00000, 1, -1, &apos;f&apos;, 1, &apos;Test3&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, &apos;BGD&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, 0, 1, &apos;BDT&apos;, &apos;2021-04-07 14:30:09&apos;, 10, 0, 0, 1, 1, &apos;en&apos;, &apos;880811844526521&apos;, 0, 0, -1, 0, 0, &apos;2021-04-07 14:30:09&apos;, 0.00000, 1, 0, &apos;&apos;, &apos;00-00-00-00-00-00&apos;, 52, &apos;&apos;, 0, 0, NULL, &apos;&apos;, 0, -1, 1, &apos;&apos;, NULL, NULL, &apos;&apos;, 0.00, 0, -1, NULL, 0, &apos;0&apos;, NULL,&apos;2021-04-07 14:30:09&apos;, &apos;2021-04-07 14:30:09&apos;),
+(&apos;09648000150&apos;, &apos;09648000150&apos;, &apos;Central&apos;, 0, 10, &apos;S &apos;, 0, 0, &apos;a2b123&apos;, 10.00000, 1, -1, &apos;f&apos;, 1, &apos;Test3&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, &apos;BGD&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, 0, 1, &apos;BDT&apos;, &apos;2021-04-07 14:30:09&apos;, 10, 0, 0, 1, 1, &apos;en&apos;, &apos;880811844526521&apos;, 0, 0, -1, 0, 0, &apos;2021-04-07 14:30:09&apos;, 0.00000, 1, 0, &apos;&apos;, &apos;00-00-00-00-00-00&apos;, 52, &apos;&apos;, 0, 0, NULL, &apos;&apos;, 0, -1, 1, &apos;&apos;, NULL, NULL, &apos;&apos;, 0.00, 0, -1, NULL, 0, &apos;0&apos;, NULL,&apos;2021-04-07 14:30:09&apos;, &apos;2021-04-07 14:30:09&apos;)
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Delete_CC_Card" enabled="false">
+          <stringProp name="dataSource">iptsp_pool</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">delete from mya2billing.cc_card</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Delete_CC_Call" enabled="false">
+          <stringProp name="dataSource">iptsp_pool</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">delete from mya2billing.cc_call</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Insert_CC_Call" enabled="false">
+          <stringProp name="dataSource">iptsp_pool</stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="query">INSERT INTO `cc_call` (`src`, `starttime`, `stoptime`, `sessiontime`, `real_sessiontime`, `sessionid`, `uniqueid`, `card_id`, `nasipaddress`, `calledstation`, `sessionbill`, `id_tariffgroup`, `id_tariffplan`, `id_ratecard`, `id_trunk`, `sipiax`, `a2b_custom1`, `a2b_custom2`, `dnid`)
+VALUES
+(&apos;09648000110&apos;, &apos;2021-03-28 23:58:59&apos;, &apos;2021-03-28 23:59:59&apos;,  &apos;60&apos;, &apos;60&apos;, &apos;SIP/09648000002-00000004&apos;, &apos;1614492868.8&apos;, &apos;1&apos;, &apos;192.168.0.1&apos;,  &apos;SIP/09648000001&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;3&apos;, &apos;&apos;, &apos;&apos;, &apos;09648000110&apos;),
+(&apos;09648000120&apos;, &apos;2021-04-28 23:58:59&apos;, &apos;2021-04-28 23:59:59&apos;,  &apos;60&apos;, &apos;60&apos;, &apos;SIP/09648000002-00000004&apos;, &apos;1614492868.8&apos;, &apos;1&apos;, &apos;192.168.0.1&apos;,  &apos;SIP/09648000001&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;3&apos;, &apos;&apos;, &apos;&apos;, &apos;09648000120&apos;),
+(&apos;09648000130&apos;, &apos;2021-05-28 23:58:59&apos;, &apos;2021-05-28 23:59:59&apos;,  &apos;60&apos;, &apos;60&apos;, &apos;SIP/09648000002-00000004&apos;, &apos;1614492868.8&apos;, &apos;1&apos;, &apos;192.168.0.1&apos;,  &apos;SIP/09648000001&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;3&apos;, &apos;&apos;, &apos;&apos;, &apos;09648000130&apos;),
+(&apos;09648000140&apos;, &apos;2021-05-28 23:58:59&apos;, &apos;2021-05-28 23:59:59&apos;,  &apos;60&apos;, &apos;60&apos;, &apos;SIP/09648000002-00000004&apos;, &apos;1614492868.8&apos;, &apos;1&apos;, &apos;192.168.0.1&apos;,  &apos;SIP/09648000001&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;3&apos;, &apos;&apos;, &apos;&apos;, &apos;09648000140&apos;),
+(&apos;09648000150&apos;, &apos;2021-08-31 23:59:01&apos;, &apos;2021-09-01 00:00:01&apos;,  &apos;60&apos;, &apos;60&apos;, &apos;SIP/09648000002-00000004&apos;, &apos;1614492868.8&apos;, &apos;1&apos;, &apos;192.168.0.1&apos;,  &apos;SIP/09648000001&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;3&apos;, &apos;&apos;, &apos;&apos;, &apos;09648000150&apos;)
+
+
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Active_SQL" enabled="false">
+          <stringProp name="dataSource">iptsp_pool</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">SELECT a.username Customer_number,
+date(a.creationdate) Customer_onboarding_date,
+a.state Zone,
+a.max_concurrent Concurrent_channel,
+case
+when a.typepaid = 1 then &quot;Postpaid&quot;
+when a.typepaid = 0 then &quot;Prepaid&quot;
+else NULL
+end Type,
+case
+when company_name != &apos;&apos; then &quot;Corporate&quot;
+else &quot;Individual&quot;
+end Customer_category,
+b.last_transaction_date
+FROM cc_card a left outer
+JOIN
+    (SELECT src,
+max(date(stoptime)) AS last_transaction_date
+    FROM cc_call
+    WHERE src LIKE &apos;09648%&apos;
+    GROUP BY  src) b
+    ON a.username = b.src
+where datediff(&apos;2021-04-01&apos;,b.last_transaction_date) &lt;= 90
+Order by creationdate
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET_Token" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;username&quot; : &quot;bappy&quot;,&#xd;
+	&quot;password&quot; : 1234&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${port}</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/login</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor (token)" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">token</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.jwt</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NoToken</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Header_for_Token" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Active_Subscriber_GET" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="year" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">2021</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">year</stringProp>
+              </elementProp>
+              <elementProp name="month" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">05</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">month</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${port}</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/active_subscriber</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${token}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="jp@gc - JSON Assertion" enabled="true">
+            <stringProp name="JSON_PATH">$..[?(@.payType == &apos;${payType}&apos;)][?(@.clientType == &apos;${clientType}&apos;)][?(@.zone == &apos;${zone}&apos;)].data</stringProp>
+            <stringProp name="EXPECTED_VALUE">${data}</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">false</boolProp>
+            <stringProp name="INPUT_FORMAT">JSON</stringProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Local_env" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="host" elementType="Argument">
+              <stringProp name="Argument.name">host</stringProp>
+              <stringProp name="Argument.value">localhost</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="port" elementType="Argument">
+              <stringProp name="Argument.name">port</stringProp>
+              <stringProp name="Argument.value">8080</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="payType" elementType="Argument">
+              <stringProp name="Argument.name">payType</stringProp>
+              <stringProp name="Argument.value">PREPAID</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="clientType" elementType="Argument">
+              <stringProp name="Argument.name">clientType</stringProp>
+              <stringProp name="Argument.value">INDIVIDUAL</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="zone" elementType="Argument">
+              <stringProp name="Argument.name">zone</stringProp>
+              <stringProp name="Argument.value">South-East</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="data" elementType="Argument">
+              <stringProp name="Argument.name">data</stringProp>
+              <stringProp name="Argument.value">3</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.JSONFormatter guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.gui.JSONFormatterGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.JSONFormatter" testname="jp@gc - JSON Format Post Processor (Default)" enabled="true"/>
+        <hashTree/>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler - Variable Check" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+      </hashTree>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery"></stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="connectionProperties"></stringProp>
+        <stringProp name="dataSource">iptsp_pool</stringProp>
+        <stringProp name="dbUrl">jdbc:mysql://localhost:3036/myDB?useSSL=false&amp;autoReconnect=true</stringProp>
+        <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+        <stringProp name="initQuery"></stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">root</stringProp>
+        <stringProp name="poolMax">0</stringProp>
+        <boolProp name="preinit">false</boolProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">root</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
