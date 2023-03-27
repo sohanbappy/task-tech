@@ -43,6 +43,7 @@
 
 ### Sql
 * Mysql
+* postgres
 * MongoDb
 
 ### Project Management Tool
@@ -70,6 +71,7 @@
 
 ### Diagram
 * mockFlow
+* draw.io
 
 ### Communication 
 * Skype
@@ -90,6 +92,7 @@
 * Kafka
 * Elastic search
 * Grails
+* AWS
 
 ### Familiarity
 * php
