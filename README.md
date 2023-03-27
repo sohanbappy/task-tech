@@ -87,7 +87,9 @@
 * Docker
 * Spring Batch
 * MongoDB
-
+* Kafka
+* Elastic search
+* Grails
 
 ### Familiarity
 * php
