@@ -92,7 +92,7 @@
 * Kafka
 * Elastic search
 * Grails
-* AWS
+* ### AWS
 
 ### Familiarity
 * php
