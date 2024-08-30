@@ -8,7 +8,7 @@
 * Scrum
 
 ### Java
-* Java 8,11
+* Java 8,11,17,21
 * IDE - Netbeans, Eclipse, IntelliJ, STS, VS Code, SublimeTxt
 
 ### related tech
@@ -82,16 +82,17 @@
 * AnyDesk
 * VMWare
 
-### Others (on Going)
+### Others
 * Microservices
-* Reactive
+* Reactive Spring
 * CI/CD - Jenkins
 * Docker
 * Spring Batch
 * MongoDB
 * Kafka
-* Elastic search
+* Elastic Search
 * Grails
+* Angular
 * ### AWS
 
 ### Familiarity
